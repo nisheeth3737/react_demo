@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Button, Checkbox, Form } from 'semantic-ui-react';
-
+import axios from 'axios';
 export default function Create() {
   const [title, settitle] = useState('');
   const [description, setdescription] = useState('');
@@ -9,7 +9,6 @@ export default function Create() {
     axios.post(`https://dummyjson.com/products/add`, {
       title,
       description,
-      checkbox,
     });
   };
   return (
