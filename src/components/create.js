@@ -2,29 +2,31 @@ import React, { useState } from 'react';
 import { Button, Checkbox, Form } from 'semantic-ui-react';
 
 export default function Create() {
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
+  const [title, settitle] = useState('');
+  const [description, setdescription] = useState('');
   const [checkbox, setCheckbox] = useState(false);
   const postData = () => {
-    console.log(firstName);
-    console.log(lastName);
-    console.log(checkbox);
+    axios.post(`https://dummyjson.com/products/add`, {
+      title,
+      description,
+      checkbox,
+    });
   };
   return (
     <div>
       <Form className="create-form">
         <Form.Field>
-          <label>First Name</label>
+          <label>title</label>
           <input
-            placeholder="First Name"
-            onChange={(e) => setFirstName(e.target.value)}
+            placeholder="title"
+            onChange={(e) => settitle(e.target.value)}
           />
         </Form.Field>
         <Form.Field>
-          <label>Last Name</label>
+          <label>description</label>
           <input
-            placeholder="Last Name"
-            onChange={(e) => setLastName(e.target.value)}
+            placeholder="description"
+            onChange={(e) => setdescription(e.target.value)}
           />
         </Form.Field>
         <Form.Field>
