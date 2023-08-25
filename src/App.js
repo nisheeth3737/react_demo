@@ -2,7 +2,9 @@ import './style.css';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Create from './components/create';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes } from 'react-router-dom';
+import Read from './components/read';
+import Update from './components/update';
 
 function App() {
   return (
@@ -10,8 +12,13 @@ function App() {
       <div className="main">
         <h2 className="main-header">React Crud Operations</h2>
         <div>
-          <Create />
+          <Routes exact path="/create" component={Create} />
         </div>
+        <div style={{ marginTop: 20 }}>
+          <Routes exact path="/read" component={Read} />
+        </div>
+
+        <Routes path="/update" component={Update} />
       </div>
     </Router>
   );
